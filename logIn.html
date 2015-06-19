@@ -24,13 +24,13 @@
         e.preventDefault();
         var username = $('#username').val();
         var password = $('#password').val();
-        console.log("登入前 Parse.User.current() : " ,Parse.User.current() ))
+       console.log("登入前 Parse.User.current() : " ,Parse.User.current() );
 
      Parse.User.logIn( username, password,{
      success:function(user){
         console.log("登入後 Parse.User.current(): " ,Parse.User.current() );
         
-        if( Parse.User.current().role === "student"){
+       if( Parse.User.current().attributes.role === "student"){
         var attendClass = Parse.Object.extend("attendClass");
         var query = new Parse.Query(attendClass);
 
@@ -38,7 +38,7 @@
         window.location = 'index.html' 
         }
        
-       if( Parse.User.current().role === "teacher"){
+       if( Parse.User.current().attributes.role === "teacher"){
        alert('登入成功') ;
        window.location = 'index.html' 
        }
