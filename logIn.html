@@ -34,8 +34,15 @@
        if( Parse.User.current().attributes.role === "student"){
         // var attendClass = Parse.Object.extend("attendClass");
         // var query = new Parse.Query(attendClass);
-        user.set("attend", true);
-
+          user.set("attend", true);
+          user.save(null, {
+            success: function(user) {
+              console.log(user);
+            },
+            error: function(user, error) {
+              console.log(error);
+            }
+        
         alert('登入並成功簽到') ;
         window.location = 'index.html' 
         }
