@@ -18,9 +18,14 @@
       /* 要判斷使用者角色，避免不應該看到的人進到此頁面 */
         // 提示 1 : 將非老師的角色轉址到 index 頁面
         // 提示 2 : 將未登入的使用者轉指導 logIn 頁面
+      if(Parse.User.current()){
+         }else{
+        alert('請先登入，將前往登入頁面') ;
+        window.location = "logIn.html";
+          }
 
-      if (user.get("role","student")){
-       alert('sorry只有老師可以來') ;
+      if (Parse.User.current().attributes.role === "student"){
+       alert('sorry只有老師可以來喔') ;
        window.location = 'index.html' 
       } 
 
