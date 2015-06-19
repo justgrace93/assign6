@@ -32,24 +32,20 @@
       /* 請閱讀完 html 後在這裡填入送出表單後需要執行的程式碼 */
         // 提示 1 : 挑選符合條件的使用者
         //         可參考https://parse.com/docs/js/guide#queries-query-constraints
-      
-      var Attender = Parse.Object.extend('User');
-      var query = new Parse.Query(Attender);
-      query.equalTo("attend", true); 
+
+      var query = new Parse.Query(User);
+     query.equalTo("attendClass", true);
       query.find({
-        success: function(attendList){
-
-          for(var i=0; i< attendList.length; i++){
-            var attenders = attendList[i];
-            $('#table').append('<tr> <td>' + attendList[i].get('username') + '</td> </tr>');
-          }
-        },
-        error: function(error){
-          console.log(error);
-          alert(error.message);
-        }
-      });
-
+      success: function(nameList) {
+    // Do something with the returned Parse.Object values
+    for (var i = 0; i < nameList.length; i++) { 
+      $('#table').append(nameList[i].get('username'));
+    }
+  },
+  error: function(error) {
+  alert("error");
+}
+});
         // 提示 2 : 可使用 jqeury 中的 append 方法將資料顯示在<table id="table">中
 
       /* 結束*/
