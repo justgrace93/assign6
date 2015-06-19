@@ -23,11 +23,11 @@
         alert('請先登入') ;
         window.location = "logIn.html";
           }
-          //提示 2 : 請在 <span id="name" > 中顯示使用者名稱，在 <span id="role">中顯示角色  
-        var printInfo = function(data, status){
-        console.log(user);
+          //提示 2 : 請在 <span id="name" > 中顯示使用者名稱，在 <span id="role">中顯示角色 
+        if(Parse.User.current()){
+        console.log(Parse.User.current());
          $('#name').text(Parse.User.current().attributes.username);
-        // $('#role').text(Parse.User.current().attributes.role);
+         $('#role').text(Parse.User.current().attributes.role);
         };
     });
 
