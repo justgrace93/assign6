@@ -14,6 +14,7 @@
   <script type="text/javascript">
 
     $(document).on('submit','#logInForm',function(e){
+      e.preventDefault();
       console.log('logIn submit');
       /* 請閱讀完 html 後在這裡填入送出表單後需要執行的程式碼 */
         // 提示1 : 記得使用 preventDefault 方程 避免表單轉址(V)
@@ -21,16 +22,16 @@
         // 提示2 : 請在使用者登入成功後，自動幫助使用者簽到，（學生遷到，老師不用）
                //  輸入賬號密碼，判定為老師學生（抓role那籃資料？），
         // 提示3 : 簽到成功後，要將畫面切換到 index 頁面
-        e.preventDefault();
+        
         var username = $('#username').val();
         var password = $('#password').val();
-        console.log("登入前 Parse.User.current() : " ,Parse.User.current() ))
+       console.log("登入前 Parse.User.current() : " ,Parse.User.current() );
 
      Parse.User.logIn( username, password,{
      success:function(user){
         console.log("登入後 Parse.User.current(): " ,Parse.User.current() );
         
-        if( Parse.User.current().role === "student"){
+       if( Parse.User.current().attributes.role === "student"){
         var attendClass = Parse.Object.extend("attendClass");
         var query = new Parse.Query(attendClass);
 
@@ -38,7 +39,7 @@
         window.location = 'index.html' 
         }
        
-       if( Parse.User.current().role === "teacher"){
+       if( Parse.User.current().attributes.role === "teacher"){
        alert('登入成功') ;
        window.location = 'index.html' 
        }
