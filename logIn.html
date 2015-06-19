@@ -35,15 +35,16 @@
         // var attendClass = Parse.Object.extend("attendClass");
         // var query = new Parse.Query(attendClass);
            user.set("attendCLass", true);
-          // user.save(null, {
-          //   success: function(user) {
+           user.save(null, {
+             success: function(user) {
+              alert('登入並成功簽到') ;
           //     console.log(user);
-          //   },
-          //   error: function(user, error) {
-          //     console.log(error);
-          //   }
+             },
+             error: function(user, error) {
+         //      console.log(error);
+             }
         
-        alert('登入並成功簽到') ;
+        
         window.location = 'index.html' 
         }
        
