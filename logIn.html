@@ -32,8 +32,9 @@
         console.log("登入後 Parse.User.current(): " ,Parse.User.current() );
         
        if( Parse.User.current().attributes.role === "student"){
-        var attendClass = Parse.Object.extend("attendClass");
-        var query = new Parse.Query(attendClass);
+        // var attendClass = Parse.Object.extend("attendClass");
+        // var query = new Parse.Query(attendClass);
+        user.set("attend", true);
 
         alert('登入並成功簽到') ;
         window.location = 'index.html' 
