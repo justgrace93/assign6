@@ -26,8 +26,9 @@
           //提示 2 : 請在 <span id="name" > 中顯示使用者名稱，在 <span id="role">中顯示角色  
         var printInfo = function(data, status){
         console.log(user);
-         $('#name').get(Parse.User.current().attributes.username);
-         $('#role').get(Parse.User.current().attributes.role);
+         $('#name').text('胖虎啊');
+         //get(Parse.User.current().attributes.username);
+        // $('#role').get(Parse.User.current().attributes.role);
         };
     });
 
@@ -58,3 +59,4 @@
   </div>
 </body>
 </html>
+
