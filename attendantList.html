@@ -33,7 +33,7 @@
         // 提示 1 : 挑選符合條件的使用者
         //         可參考https://parse.com/docs/js/guide#queries-query-constraints
 
-      var query = new Parse.Query(User);
+      var query = new Parse.Query('User');
      query.equalTo("attendClass", true);
       query.find({
       success: function(nameList) {
