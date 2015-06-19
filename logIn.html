@@ -38,6 +38,7 @@
            user.save(null, {
              success: function(user) {
               alert('登入並成功簽到') ;
+               window.location = 'index.html' ;
           //     console.log(user);
              },
              error: function(user, error) {
@@ -45,7 +46,7 @@
              }
         
         
-        window.location = 'index.html'; 
+       
         }
        
        if( Parse.User.current().attributes.role === "teacher"){
