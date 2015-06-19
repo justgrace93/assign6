@@ -30,13 +30,16 @@
          $('#role').text(Parse.User.current(),role);
         };
     });
-  
+
     $(document).on('click',"#logOut",function(){
       console.log("Logout clicked");
       /* 執行登出動作，並轉址到 logIn 頁面(V)*/
         // 可參考 : https://parse.com/docs/js/guide#users-current-user
-     Parse.User.logOut();
-     var currentUser = Parse.User.current();
+        
+         var currentUser = Parse.User.current();
+         if (currentUser){ 
+          Parse.User.logOut();
+}
      alert('重新進入登入頁面') ;
     window.location = "logIn.html";
       /* 結束 */
