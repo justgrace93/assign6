@@ -33,9 +33,9 @@
         // 提示 1 : 挑選符合條件的使用者
         //         可參考https://parse.com/docs/js/guide#queries-query-constraints
      else if (Parse.User.current().attributes.role === "teacher"){
-     alert('HI老師') ;
-     var attendClass = new Parse.User();
-     var query = new Parse.Query(Parse.User);
+    
+     var attendClass = new Parse.Object.extend("Attended");
+     var query = new Parse.Query(attendClass);
  
     query.equalTo('attendClass', true);
     query.equalTo('role', "student");
@@ -45,7 +45,7 @@
          
     // Do something with the returned Parse.Object values
     for (var i = 0; i < nameList.length; i++) { 
-      $('#table').append( nameList[i].get('username'));
+      $('#table').append( "<tr><td>"+nameList[i].get('username')+ "</td></tr>");
       console.log('User lists: ', nameList);
     }
   },
