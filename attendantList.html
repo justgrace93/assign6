@@ -35,14 +35,15 @@
      var attendClass = new Parse.User();
      var query = new Parse.Query(Parse.User);
  
-     query.equalTo("attendClass", true);
-
+     query.equalTo('attendClass', true);
+    query.equalTo('role', "student");
+      
       query.find({
       success: function(nameList) {
          
     // Do something with the returned Parse.Object values
     for (var i = 0; i < nameList.length; i++) { 
-      $('#table').append( nameList[i].attributes.username+ '</td></tr>'  );
+      $('#table').append( nameList[i].get('username'));
       console.log('User lists: ', nameList);
     }
   },
