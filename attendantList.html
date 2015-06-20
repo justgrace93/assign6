@@ -32,36 +32,26 @@
       /* 請閱讀完 html 後在這裡填入送出表單後需要執行的程式碼 */
         // 提示 1 : 挑選符合條件的使用者
         //         可參考https://parse.com/docs/js/guide#queries-query-constraints
-    if(Parse.User.current().attributes.role==="teacher"){
+     if (Parse.User.current().attributes.role === "teacher"){
 
-        var nameList = new Parse.User();        
-        var query = new Parse.Query(Parse.User);
-        
-        query.equalTo('attendClass',true);
-        query.equalTo('role',"student");
-
-        query.find({
-          success: function(nameListArray){
-
-            console.log(nameListArray);
-
-            for (var i = 0 ; i < nameListArray.length ; i+=1){
-            var attended = nameListArray[i] ;
-            console.log(attended);
-            var addTable = function(username,createdAt){
-                  var html = '<tr><td>'+ username +'</td></tr>' ;
-                  $(html).appendTo('#table');
-          };
-          addTable(    
-            attended.get('username'));
-        }}
-          ,error : function(error){
-            console.log(error) ;
-            alert(error.message);
+   var query = new Parse.Query(Parse.User);
+      query.equalTo("attend", true);
+      query.equalTo("role", "student");
+      query.find({
+        success: function(attendList) {
+          for (var i = 0; i<attendList.length; i++) {
+            var attendance = attendList[i];
+            $('#table').append('<tr data-courseid="'+ attendance.id +'">\
+                    <td>'+ attendance.attributes.username +'</td>\
+                  </tr>');
           }
-        });
-      }
-
+        },
+        
+  error: function(error) {
+  alert("error");
+}
+      });
+} 
         // 提示 2 : 可使用 jqeury 中的 append 方法將資料顯示在<table id="table">中
 
       /* 結束*/
