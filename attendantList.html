@@ -34,7 +34,7 @@
         //         可參考https://parse.com/docs/js/guide#queries-query-constraints
      else if (Parse.User.current().attributes.role === "teacher"){
     
-     var attendClass = new Parse.Object.extend("Attended");
+     var attendClass = new Parse.Object.extend("attendCLass");
      var query = new Parse.Query(attendClass);
  
     query.equalTo('attendClass', true);
