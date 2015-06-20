@@ -32,10 +32,10 @@
       /* 請閱讀完 html 後在這裡填入送出表單後需要執行的程式碼 */
         // 提示 1 : 挑選符合條件的使用者
         //         可參考https://parse.com/docs/js/guide#queries-query-constraints
-     var attendClass = new Parse.User();
-     var query = new Parse.Query(Parse.User);
+     var attendClass = Parse.Object.extend('User');
+     var query = new Parse.Query(attendClass);
  
-     query.equalTo('attendClass', true);
+    query.equalTo('attendClass', true);
     query.equalTo('role', "student");
       
       query.find({
