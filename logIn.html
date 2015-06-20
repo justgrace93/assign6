@@ -33,7 +33,7 @@
         
        if( Parse.User.current().attributes.role === "student"){
 
-           user.set("attendCLass", "yes");
+           user.set("attended", "yes");
            user.save(null, {
              success: function(user) {
               alert('登入並成功簽到') ;
