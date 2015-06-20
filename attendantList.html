@@ -34,12 +34,12 @@
         //         可參考https://parse.com/docs/js/guide#queries-query-constraints
      else if (Parse.User.current().attributes.role === "teacher"){
     
-        var Std=Parse.Object.extend('User');
-        var std= new Parse.Query(Std);
-        std.equalTo('role',"student");
-        //std.equalTo('attendClass',true);
+        var Attended=Parse.Object.extend('User');
+        var query= new Parse.Query(Attended);
+        query.equalTo('role',"student");
+        query.equalTo('attendClass',"yes");
 
-        std.find({
+        query.find({
           success:function(data){
           for(var i=0;i<data.length;i++){
               $('#table').append(data[i].get('username'));
