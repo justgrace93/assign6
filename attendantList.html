@@ -33,7 +33,7 @@
         // 提示 1 : 挑選符合條件的使用者
         //         可參考https://parse.com/docs/js/guide#queries-query-constraints
      else if (Parse.User.current().attributes.role === "teacher"){
-
+     alert('HI老師') ;
      var attendClass = new Parse.User();
      var query = new Parse.Query(Parse.User);
  
