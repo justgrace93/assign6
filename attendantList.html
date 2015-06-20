@@ -34,26 +34,27 @@
         //         可參考https://parse.com/docs/js/guide#queries-query-constraints
      else if (Parse.User.current().attributes.role === "teacher"){
     
-     var attendClass = new Parse.Object.extend("attendCLass");
-     var query = new Parse.Query(attendClass);
- 
-    query.equalTo('attendClass', true);
-    query.equalTo('role', "student");
-      
-      query.find({
-      success: function(nameList) {
-         
-    // Do something with the returned Parse.Object values
-    for (var i = 0; i < nameList.length; i++) { 
-      $('#table').append( "<tr><td>"+nameList[i].get('username')+ "</td></tr>");
-      console.log('User lists: ', nameList);
-    }
-  },
+      var User = Parse.Object.extend("User");
+      var attendList = new Parse.Query(User)
 
-  error: function(error) {
-  alert("error");
-}
-});
+      attendList.equalTo('attendClass',true);
+      attendList.equalTo('role',"student");
+
+      attendList.find({
+      success: function(UserList) {
+        console.log(UserList);
+      for(var i = 0 ; i < UserList.length ; i++){
+        attend = UserList[i];
+        $('#table').append(
+          '<tr><td>'+attend.get('username')+'</td></tr>'
+          );
+      }
+      },
+      error: function(error) {
+        console.log(error) ;
+        alert(error.message);
+      }
+    });
 } 
         // 提示 2 : 可使用 jqeury 中的 append 方法將資料顯示在<table id="table">中
 
