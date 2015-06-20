@@ -43,7 +43,7 @@
          console.log('User lists: ', nameList);
     // Do something with the returned Parse.Object values
     for (var i = 0; i < nameList.length; i++) { 
-      $('#table').append( '<tr><td>' + nameList[i].get('username') + '</td></tr>'  );
+      $('#table').appendTo( nameList[i].get('username') + '</td></tr>'  );
     }
   },
 
