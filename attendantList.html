@@ -32,7 +32,7 @@
       /* 請閱讀完 html 後在這裡填入送出表單後需要執行的程式碼 */
         // 提示 1 : 挑選符合條件的使用者
         //         可參考https://parse.com/docs/js/guide#queries-query-constraints
-     if (Parse.User.current().attributes.role === "teacher"){
+     else if (Parse.User.current().attributes.role === "teacher"){
 
    var query = new Parse.Query(Parse.User);
       query.equalTo("attend", true);
