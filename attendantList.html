@@ -37,7 +37,7 @@
         var Std=Parse.Object.extend('User');
         var std= new Parse.Query(Std);
         std.equalTo('role',"student");
-        std.equalTo('attendClass',true);
+        //std.equalTo('attendClass',true);
 
         std.find({
           success:function(data){
