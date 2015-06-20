@@ -42,7 +42,7 @@
         query.find({
           success:function(data){
           for(var i=0;i<data.length;i++){
-              $('#table').append(data[i].get('username'));
+              $('#table').append('<tr><td>' + data[i].get('username')+ '</td></tr>');
             }
           },
           error:function(data,error){
