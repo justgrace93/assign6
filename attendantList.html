@@ -37,7 +37,7 @@
         var Attended=Parse.Object.extend('User');
         var query= new Parse.Query(Attended);
         query.equalTo('role',"student");
-        query.equalTo('attendClass',"yes");
+        query.equalTo('attended',"yes");
 
         query.find({
           success:function(data){
